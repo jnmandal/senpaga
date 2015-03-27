@@ -12,4 +12,96 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap.min
+ *= require jumbotron-narrow
  */
+
+body {
+  background-color: ;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+ a {
+  color: #227024;
+ }
+
+ a:hover {
+  color: #227024;
+  background-color: #eee;
+ }
+
+.text-muted {
+  color: #eee;
+
+}
+
+.jumbotron {
+  background-color: white;
+  border: solid;
+  border-color: #227024;
+  font-weight: lighter;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: white;
+    background-color: #227024;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: ;
+    color: #227024;
+    background-color: #eee;
+}
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+    background-color: #eee;
+    border-color: #227024;
+}
+.nav .nav-divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+.jumbotron h1 {
+  display: inline;
+  color: #227024;
+}
+
+.jumbotron p {
+  margin-left: auto;
+  color: #227024;
+}
+
+.case {
+  display: inline;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.ipa {
+  display: inline;
+}
+
+.definition {
+  display: block;
+}
+
+input {
+  background-color: white;
+  font-weight: lighter;
+  color: #227024;
+
+}
+
+.form-control:focus {
+  border-color: #227024;
+  -webkit-box-shadow: #227024;
+
+}
+
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
