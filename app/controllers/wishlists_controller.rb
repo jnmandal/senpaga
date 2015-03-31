@@ -1,5 +1,5 @@
 class WishlistsController < ApplicationController
-  before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
+  before_action :set_wishlist, only: [:show, :edit, :update, :destroy, :scrape]
 
   def index
     @wishlists = Wishlist.all
@@ -17,36 +17,24 @@ class WishlistsController < ApplicationController
 
   def create
     @wishlist = Wishlist.new(wishlist_params)
-
-    respond_to do |format|
-      if @wishlist.save
-        format.html { redirect_to @wishlist, notice: 'Wishlist was successfully created.' }
-        format.json { render :show, status: :created, location: @wishlist }
-      else
-        format.html { render :new }
-        format.json { render json: @wishlist.errors, status: :unprocessable_entity }
-      end
+    if @wishlist.save
+      redirect_to action: show, id: @wishlist.id
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @wishlist.update(wishlist_params)
-        format.html { redirect_to @wishlist, notice: 'Wishlist was successfully updated.' }
-        format.json { render :show, status: :ok, location: @wishlist }
-      else
-        format.html { render :edit }
-        format.json { render json: @wishlist.errors, status: :unprocessable_entity }
-      end
-    end
+    @wishlist.update(wishlist_params)
   end
 
-  def destroy
-    @wishlist.destroy
-    respond_to do |format|
-      format.html { redirect_to wishlists_url, notice: 'Wishlist was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  # xhr only
+  def scrape
+    @wishlist.get_books
+    if @wishlist.save
+      wishlist.books.to_json
+    else
+      response
   end
 
   private
@@ -55,6 +43,6 @@ class WishlistsController < ApplicationController
     end
 
     def wishlist_params
-      params[:wishlist]
+      params.require(:wishlist).permit(:url,:name, :user) #.merge({author: current_user})
     end
 end

@@ -1,12 +1,13 @@
 <div class="jumbotron">
   <h1> wishlister </h1>
-  <p> Link to your wishlist to start the process. </p>
+  <p> link to your wishlist to start the process. </p>
 </div>
 
-<%= form_tag do %>
+<%= form_tag "/wishlists" do %>
   <div class="col-lg-12">
     <div class="input-group">
-      <%= text_field_tag :url, nil, class: "form-control", placeholder: "amzn.com/asdas" %>
+      <span class="input-group-addon">http://</span>
+      <%= text_field_tag :"wishlist[url]", nil, class: "form-control", placeholder: "amzn.com/w/2XPUQMFIXBR2A" %>
       <div class="input-group-btn">
         <%= submit_tag "Go", class: "btn btn-default" %>
       </div>

@@ -4,6 +4,8 @@ class CreateWishlists < ActiveRecord::Migration
       t.string     :name
       t.references :user
       t.string     :url
+      t.boolean    :scraped
+      t.datetime   :last_scraped
 
       t.timestamps null: false
     end
