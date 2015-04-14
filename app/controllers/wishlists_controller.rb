@@ -34,7 +34,8 @@ class WishlistsController < ApplicationController
     if @wishlist.save
       wishlist.books.to_json
     else
-      response
+      # response
+    end
   end
 
   private
