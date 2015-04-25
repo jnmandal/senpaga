@@ -4,7 +4,7 @@
   <strong>name: </strong><%= @wishlist.name %>
 </p>
 <p>
-  <strong>user: </strong><%= @wishlist.user %>
+  <strong>user: </strong><%= link_to @wishlist.user.name, @wishlist.user if @wishlist.user %>
 </p>
 <p>
   <strong>url: </strong><%= @wishlist.url %>
