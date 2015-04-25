@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new, :create]
 
-  resources :wishlists
+  resources :wishlists do
+    member do
+      get 'scrape'
+    end
+  end
 
 end
