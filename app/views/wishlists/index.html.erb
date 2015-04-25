@@ -2,18 +2,29 @@
 
 <h1>Listing Wishlists</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>id</th>
+      <th>name</th>
+      <th>user</th>
+      <th>url</th>
+      <th>scraped?</th>
+      <th>last_scraped</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @wishlists.each do |wishlist| %>
       <tr>
+        <td><%= link_to wishlist.id, wishlist %></td>
+        <td><%= wishlist.name %></td>
+        <td><%= wishlist.user %></td>
+        <td><%= wishlist.url %></td>
+        <td><%= wishlist.scraped %></td>
+        <td><%= wishlist.last_scraped.ctime %></td>
         <td><%= link_to 'Show', wishlist %></td>
-        <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
         <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
