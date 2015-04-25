@@ -29,7 +29,7 @@ body {
 }
 
 .nav>li>a:hover, .nav>li>a:focus {
-    text-decoration: ;
+    text-decoration: none;
     color: #227024;
     background-color: #eee;
 }
