@@ -31,6 +31,9 @@ gem 'nokogiri'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# For heroku deployment
+gem 'rails_12factor', group: :production
+
 group :development, :test do
    # Use Rspec and Capybara/Selenium for testing
   gem 'rspec-rails'
