@@ -11,8 +11,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -34,6 +32,11 @@ gem 'nokogiri'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+   # Use Rspec and Capybara/Selenium for testing
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
