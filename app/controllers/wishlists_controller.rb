@@ -83,6 +83,6 @@ class WishlistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wishlist_params
-      params.require(:wishlist).permit(:url,:name, :user) #.merge({author: current_user})
+      params.require(:wishlist).permit(:url,:name, :user).merge(user: current_user)
     end
 end
