@@ -19,7 +19,7 @@
         <td><%= link_to wishlist.user.name, wishlist.user if wishlist.user %></td>
         <td><%= wishlist.url %></td>
         <td><%= wishlist.scraped %></td>
-        <td><%= wishlist.scraped.ctime if wishlist.scraped %></td>
+        <td><%= wishlist.last_scraped.ctime if wishlist.scraped %></td>
         <td><%= link_to 'Show', wishlist %></td>
         <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
