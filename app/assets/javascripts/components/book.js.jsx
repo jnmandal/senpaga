@@ -2,12 +2,24 @@ var Book = React.createClass({
 
   render: function() {
     return (
-      <tr className="book">
-        <td>{this.props.asin}</td>
-        <td>{this.props.title}</td>
-        <td>{this.props.author}</td>
-        <td>{this.props.price}</td>
-      </tr>
+      <div className="book">
+        <p>
+          <strong>asin: </strong>
+          {this.props.asin}
+        </p>
+        <p>
+          <strong>title: </strong>
+          {this.props.title}
+        </p>
+        <p>
+          <strong>author: </strong>
+          {this.props.author}
+        </p>
+        <p>
+          <strong>price: </strong>
+          {this.props.price}
+        </p>
+      </div>
     );
   }
 });

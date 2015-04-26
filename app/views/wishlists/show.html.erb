@@ -16,31 +16,6 @@
   <strong>last_scraped: </strong><%= @wishlist.last_scraped.ctime if @wishlist.scraped %>
 </p>
 
-
-<table class="table-striped">
-  <thead>
-    <tr>
-      <th>asin</th>
-      <th>title</th>
-      <th>author</th>
-      <th>price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @wishlist.books.each do |book| %>
-      <tr>
-        <td><%= link_to book.asin, "http://amazon.com/dp/#{book.asin}" %></td>
-        <td><%= book.title %></td>
-        <td><%= book.author %></td>
-        <td><%= book.price %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= react_component 'Wishlist', {url: scrape_wishlist_path(@wishlist)} %>
 
 <%= link_to 'Back', wishlists_path %>
