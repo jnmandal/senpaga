@@ -1,6 +1,9 @@
 var Book = React.createClass({
 
   render: function() {
+    function generateOLReadLink(asin) {
+      return {__html: '<div class="ol_readapi_book" isbn="'+asin+'"></div>'};
+    }
     return (
       <div className="book">
         <p>
@@ -19,6 +22,7 @@ var Book = React.createClass({
           <strong>price: </strong>
           {this.props.price}
         </p>
+        <span dangerouslySetInnerHTML={generateOLReadLink(this.props.asin)} />
       </div>
     );
   }
