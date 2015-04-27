@@ -1,7 +1,7 @@
 # Senpaga
 
-Senpaga, the esperanto word for free, is a project for finding free books. Senpaga is a rails 4.2 app with front end JS done in RiotJS
+Senpaga, the esperanto word for free, is an opensource project for finding free books. It is implemented in Rails and React. 
 
 ## Wishlister
 
-Wishlister is a feature that will scrape a given amazon wishlst and save its contents to be compared against library apis.
+Wishlister is a feature that will scrape a given amazon wishlst and compare its contents against library apis.
