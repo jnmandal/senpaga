@@ -133,7 +133,7 @@ result = {
 };
 
 return result;
-})(); // close anonymous scope
+}) // close anonymous scope
 
 /*
 

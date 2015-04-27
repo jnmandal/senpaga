@@ -17,3 +17,4 @@
 //= require components
 //= require_tree .
 //= require bootstrap.min
+//= require readapi_automator
