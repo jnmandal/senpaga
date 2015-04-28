@@ -1,6 +1,9 @@
   class Wishlist < ActiveRecord::Base
   belongs_to :user
   has_many   :books
+  validates :url, uniqueness: true, presence:true
+  validate :is_valid_wishlist_url?
+  before_validation :format_http
 
   # scraping methods
   #test: "http://amzn.com/w/2XPUQMFIXBR2A"
@@ -21,4 +24,18 @@
       self.scraped = true
     end
   end
+
+  private
+  def is_valid_wishlist_url?
+    unless url.nil? || url.include?("amzn") || url.include?("amazon")
+      errors.add(:valid_wishlist_url, "must be amazon wishlist url")
+    end
+  end
+
+  def format_http
+    unless url.nil? || url[0...7] == "http://" || url[0...8] == "https://"
+      url.insert(0, "http://")
+    end
+  end
+
 end
