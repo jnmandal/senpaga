@@ -7,6 +7,9 @@ var Book = React.createClass({
     return (
       <div className="book">
         <p>
+          <img src={"http://covers.openlibrary.org/b/isbn/"+this.props.asin+"-M.jpg"} />
+        </p>
+        <p>
           <strong>asin: </strong>
           {this.props.asin}
         </p>
