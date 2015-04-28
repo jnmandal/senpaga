@@ -30,7 +30,7 @@ describe Wishlist, type: :model do
 
     it "should prepend 'http://' when needed"  do
       w = Wishlist.create!(url: "amzn.com/w/2XPUQMFIXBR2A")
-      epect(w.url).to eq("http://amzn.com/w/2XPUQMFIXBR2A")
+      expect(w.url).to eq("http://amzn.com/w/2XPUQMFIXBR2A")
     end
   end
 
