@@ -24,7 +24,7 @@ describe User do
       expect(u.save).to be(false)
     end
     it "should ensure email is real if given" do
-      u = User.new(name: "jnmandal", email: "invalid_email", password: "psswrd57", password_confirmation: "psswrd57")
+      u = User.new(name: "invalid_email_user", email: "invalid_email", password: "psswrd57", password_confirmation: "psswrd57")
       expect(u.save).to be(false)
     end
     it "should make sure password is 7 chars" do
