@@ -3,6 +3,16 @@
   <p> link to your wishlist to start the process. </p>
 </div>
 
+<% if @wishlist.errors.any? %>
+  <div id="errors">
+    <ul>
+    <% @wishlist.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_tag "/wishlists" do %>
   <div class="col-lg-12">
     <div class="input-group">
@@ -14,3 +24,4 @@
     </div>
   </div>
 <% end  %>
+
