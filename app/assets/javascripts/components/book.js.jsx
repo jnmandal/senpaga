@@ -11,7 +11,7 @@ var Book = React.createClass({
         </p>
         <p>
           <strong>asin: </strong>
-          {this.props.asin}
+          <a href={"http://www.amazon.com/dp/"+this.props.asin}>{this.props.asin}</a>
         </p>
         <p>
           <strong>title: </strong>
