@@ -63,11 +63,11 @@ function make_read_button(bookdata) {
         "http://openlibrary.org/images/button-checked-out-open-library.png"
     };
     if (bookdata.items.length == 0) {
-        return false;
+        return "Not Found";
     }
     first = bookdata.items[0];
     if (!(first.status in buttons)) {
-        return false;
+        return "Not Found";
     }
     result = '<a href="' + first.itemURL + '">' +
       '<img class="' + ol_button_classname +
