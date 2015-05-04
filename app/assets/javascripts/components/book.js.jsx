@@ -29,8 +29,12 @@ var Book = React.createClass({
             {this.props.price}
           </p>*/}
           <p>
-            <strong>open lib: </strong>
+            <strong>open lib ebook: </strong>
             <span dangerouslySetInnerHTML={generateOLReadLink(this.props.asin)} />
+          </p>
+          <p>
+            <strong>nearby libraries: </strong>
+            <a href={"http://www.worldcat.org/isbn/"+this.props.asin}>check at worldcat</a>
           </p>
         </div>
       </div>
