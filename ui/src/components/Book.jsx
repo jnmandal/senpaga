@@ -1,10 +1,32 @@
 import React from 'react'
+import JSONP from 'jsonp'
 
 var Book = React.createClass({
+  getInitialState: function() {
+    return {OLRecords: []};
+  },
+  componentDidMount: function() {
+    this.checkOpenLib();
+  },
+  checkOpenLib: function() {
+    let ep = `http://openlibrary.org/api/volumes/brief/json/${this.props.asin}`;
+    JSONP(ep, null, (err, data ) => {
+      if (!err) {
+        if (data[this.props.asin]['items'] && data[this.props.asin]['items'].length > 0) {
+          console.log(data[this.props.asin]['items'])
+          this.setState({
+            OLRecords: data[this.props.asin]['items']
+          })
+        } else {
+          return false;
+        }
+      }
+    })
+  },
   render: function() {
-    function generateOLReadLink(asin) {
-      return {__html: '<div class="ol_readapi_book" isbn="'+asin+'"></div>'};
-    }
+    let OLRecords = this.state.OLRecords.map((record)=>{
+      return (<li><a href={record.itemURL}>{record.status}</a></li>);
+    });
     return (
       <div className="book">
         <div className="pull-left">
@@ -25,13 +47,11 @@ var Book = React.createClass({
             <strong>author: </strong>
             {this.props.author}
           </p>
-          {/*<p>
-            <strong>price: </strong>
-            {this.props.price}
-          </p>*/}
           <p>
             <strong>open lib ebook: </strong>
-            <span dangerouslySetInnerHTML={generateOLReadLink(this.props.asin)} />
+            <ul>
+              {OLRecords}
+            </ul>
           </p>
           <p>
             <strong>nearby libraries: </strong>
