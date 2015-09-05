@@ -20,15 +20,12 @@ gem 'nokogiri'
 # Use bcrypt for password encryption
 gem 'bcrypt', '~> 3.1.7'
 
-group :development, :test do
-  # Use shotgun for running our application locally
-  gem 'shotgun'
 
-   # Use Rspec and Capybara/Selenium for testing
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'selenium-webdriver'
+# Use shotgun for running our application locally
+gem 'shotgun'
 
-  # Use faker for database seeding
-  gem 'faker'
-end
+ # Use Rspec for testing
+gem 'rspec'
+
+# Use faker for database seeding
+gem 'faker'
