@@ -16,7 +16,7 @@ class API < Grape::API
     get ':id' do
       w = Wishlist.find(params[:id])
       if w
-        w
+        w.books
       else
         {error: 'error'}
       end
