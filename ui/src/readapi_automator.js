@@ -146,3 +146,5 @@ Possible futures:
 * console debug output? (check all console.log)
 
 */
+
+export default ol_readapi_automator;
