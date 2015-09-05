@@ -4,7 +4,7 @@ class CreateWishlists < ActiveRecord::Migration
       t.string     :name
       t.references :user
       t.string     :url
-      t.boolean    :scraped
+      t.boolean    :scraped, default: false
       t.datetime   :last_scraped
 
       t.timestamps null: false
