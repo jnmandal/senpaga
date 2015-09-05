@@ -1,3 +1,5 @@
+import Booklist from './Booklist'
+
 var Wishlist = React.createClass({
   loadBooksFromServer: function() {
     $.ajax({

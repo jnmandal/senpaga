@@ -1,3 +1,6 @@
+import React from 'react'
+import Book from './Book'
+
 var BookList = React.createClass({
   render: function() {
     var bookNodes = this.props.data.map(function (book) {
@@ -5,7 +8,6 @@ var BookList = React.createClass({
           <Book asin={book.asin} title={book.title} author={book.author} price={book.price} />
         );
     });
-
     function rowify (bookNodes) {
       rows = []
       for (i=1; i <= bookNodes.length; i++) {
@@ -28,7 +30,6 @@ var BookList = React.createClass({
       }
       return rows;
     }
-
     return (
       <div className="bookList">
         {rowify(bookNodes)}

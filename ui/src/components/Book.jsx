@@ -1,5 +1,6 @@
-var Book = React.createClass({
+import React from 'react'
 
+var Book = React.createClass({
   render: function() {
     function generateOLReadLink(asin) {
       return {__html: '<div class="ol_readapi_book" isbn="'+asin+'"></div>'};

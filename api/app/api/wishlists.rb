@@ -6,8 +6,8 @@ class API < Grape::API
 
     post ':id/scrape' do
       wishlist.get_books
-      if @wishlist.save
-        @wishlist.books
+      if wishlist.save
+        wishlist.books
       else
         {error: error}
       end
