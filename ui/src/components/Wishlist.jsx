@@ -1,18 +1,30 @@
-import Booklist from './Booklist'
+import React from 'react'
+import SuperAgent from 'superagent'
+import BookList from './Booklist'
 
 var Wishlist = React.createClass({
   loadBooksFromServer: function() {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      success: function(data){
-        this.setState({data: data});
-        ol_readapi_automator();
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
+    // $.ajax({
+    //   url: this.props.url,
+    //   dataType: 'json',
+    //   success: function(data){
+    //     this.setState({data: data});
+    //     ol_readapi_automator();
+    //   }.bind(this),
+    //   error: function(xhr, status, err) {
+    //     console.error(this.props.url, status, err.toString());
+    //   }.bind(this)
+    // });
+    SuperAgent
+      .get(this.props.url)
+      .end((err, res) => {
+        console.log(err, res)
+        if (res.ok) {
+          this.setState({data: res.body})
+        } else {
+          console.error(this.props.url, err)
+        }
+      })
   },
   getInitialState: function() {
     return {data: []};
@@ -29,3 +41,5 @@ var Wishlist = React.createClass({
     );
   }
 });
+
+export default Wishlist

@@ -42,3 +42,5 @@ var Book = React.createClass({
     );
   }
 });
+
+export default Book;
