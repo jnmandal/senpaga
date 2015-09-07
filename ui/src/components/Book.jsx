@@ -1,4 +1,5 @@
 import React from 'react'
+import SuperAgent from 'superagent'
 import JSONP from 'jsonp'
 
 var Book = React.createClass({
@@ -9,13 +10,12 @@ var Book = React.createClass({
     this.checkOpenLib();
   },
   checkOpenLib: function() {
-    let ep = `http://openlibrary.org/api/volumes/brief/json/${this.props.asin}`;
+    let ep = `http://openlibrary.org/api/volumes/brief/isbn/${this.props.asin}.json`;
     JSONP(ep, null, (err, data ) => {
       if (!err) {
-        if (data[this.props.asin]['items'] && data[this.props.asin]['items'].length > 0) {
-          console.log(data[this.props.asin]['items'])
+        if (data['items'] && data['items'].length > 0) {
           this.setState({
-            OLRecords: data[this.props.asin]['items']
+            OLRecords: data['items']
           })
         } else {
           return false;
