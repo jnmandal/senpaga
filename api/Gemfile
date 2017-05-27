@@ -1,0 +1,31 @@
+source 'https://rubygems.org'
+
+# Use grape, mounted on rack for the application's core
+gem 'rack', '~> 1.6.1'
+gem 'grape', '~> 0.11.0'
+# Use rack-cors to allow CORS from our app/api
+gem 'rack-cors'
+# Use rack as our script runner
+gem 'rake'
+
+# Use postgres for the database
+gem 'pg'
+# Use activerecord as a database ORM
+gem 'activesupport', '~>4.1'
+gem 'activerecord', '~>4.1'
+
+# Use Nokogiri for scraping data on the model layer
+gem 'nokogiri'
+
+# Use bcrypt for password encryption
+gem 'bcrypt', '~> 3.1.7'
+
+
+# Use shotgun for running our application locally
+gem 'shotgun'
+
+ # Use Rspec for testing
+gem 'rspec'
+
+# Use faker for database seeding
+gem 'faker'
